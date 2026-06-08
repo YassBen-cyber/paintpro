@@ -2,7 +2,7 @@ from PIL import Image
 
 image = Image.open("/home/yacine/Bureau/test/pexels-jan-van-der-wolf-11680885-15367720.webp")
 
-new_width = 800
+new_width = 1920
 
 ratio = new_width / image.width
 new_height = int(image.height * ratio)
