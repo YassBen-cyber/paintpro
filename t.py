@@ -1,14 +1,12 @@
 from PIL import Image
-from pathlib import Path
 
-def convert_to_webp(input_path, quality=100):
-    input_path = Path(input_path)
+image = Image.open("/home/yacine/Bureau/test/pexels-jan-van-der-wolf-11680885-15367720.webp")
 
-    with Image.open(input_path) as img:
-        output_path = input_path.with_suffix(".webp")
-        img.save(output_path, "WEBP", quality=quality)
+new_width = 800
 
-    print(f"Converti : {output_path}")
+ratio = new_width / image.width
+new_height = int(image.height * ratio)
 
-# Exemple
-convert_to_webp("/home/yacine/Bureau/test/pexels-jan-van-der-wolf-11680885-15367720.jpg")
+image_resized = image.resize((new_width, new_height))
+
+image_resized.save("image_resize.webp")
